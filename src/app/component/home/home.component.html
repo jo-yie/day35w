@@ -1,0 +1,39 @@
+<div class="container">
+
+    <div class="card">
+        <h1>What About the Weather?</h1>
+        <br />
+
+        <form [formGroup]="form" (submit)="processForm()">
+            <div class="row mb-3">
+                <label for="city"
+                    class="col-sm-2 col-form-label">
+                    City: 
+                </label>
+                <div class="col-sm-8">
+                    <input type="text"
+                        class="form-control"
+                        id="city"
+                        formControlName="city">
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit"
+                        class="btn btn-primary">
+                        Add
+                    </button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="card">
+        <div class="row mb-3" *ngFor="let country of countries">
+            <p>{{ country }}</p>
+        </div>
+        Countries here + router link
+    </div>
+
+</div>
+
+<app-weather-detail></app-weather-detail>
