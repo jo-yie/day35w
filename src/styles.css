@@ -9,7 +9,8 @@
 html, body { height: 100%; }
 body { 
     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-    background-color: rgb(232, 232, 232);
+    /* background-color: rgb(255, 255, 255); */
+    background-image: url('https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/19397812/1048232144.jpg.jpg?quality=90&strip=all&crop=0,10.736513278159,100,78.526973443682');
 }
 
 mat-card {

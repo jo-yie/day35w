@@ -12,7 +12,7 @@ export class HomeComponent {
   private fb = inject(FormBuilder)
   protected form!: FormGroup
 
-  protected countries: string[] = ["Singapore", "Kuala Lumpur", "Tokyo", "Bangkok", "Hong Kong", "Beijing"]
+  protected countries: string[] = ["Singapore", "Kuala Lumpur", "Tokyo", "Bangkok", "Hong Kong", "Beijing", "London", "New York"]
 
   ngOnInit():void {
 

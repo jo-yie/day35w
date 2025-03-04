@@ -10,8 +10,8 @@ export class WeatherApiService {
   constructor(private httpClient: HttpClient) { }
 
   private baseUrl = "https://api.openweathermap.org/data/2.5/weather"
-  // private APIKey = "640e8bae656105ec84a951517121a4fb"
-  private APIKey = "baf8bde025ff8bc3fcf3c3a7203cf1dc"
+  private APIKey = "640e8bae656105ec84a951517121a4fb" // day 34
+  // private APIKey = "baf8bde025ff8bc3fcf3c3a7203cf1dc" // day 35 
   private units = "metric"
 
   getWeatherFromApi(cityName: string): Observable<any> {

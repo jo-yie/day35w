@@ -1,3 +1,66 @@
-/* mat-form-field { 
-    width: 100vw !important;
-} */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+    box-sizing: border-box;
+}
+  
+.container > div:first-child {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.middle {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.buttons {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.buttons > div {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+mat-card {
+    width: 80vw !important;
+}
+
+.inline-form {
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.city-input {
+    flex-grow: 1;
+}
+
+.add-button {
+    flex-shrink: 0;
+}
+
+h1 {
+    /* font-style: italic; */
+    font-weight: lighter;
+    color: white;
+}
