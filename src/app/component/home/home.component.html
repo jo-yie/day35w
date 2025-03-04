@@ -14,11 +14,16 @@
                     <input type="text"
                         class="form-control"
                         id="city"
-                        formControlName="city">
+                        formControlName="city"
+                        [ngClass]="{
+                            'is-valid': isCtrlValid('city'), 
+                            'is-invalid': isCtrlInvalid('city')
+                        }">
                 </div>
                 <div class="col-sm-2">
                     <button type="submit"
-                        class="btn btn-primary">
+                        class="btn btn-primary"
+                        [disabled]="form.invalid">
                         Add
                     </button>
                 </div>
@@ -29,11 +34,8 @@
 
     <div class="card">
         <div class="row mb-3" *ngFor="let country of countries">
-            <p>{{ country }}</p>
+            <p><a [routerLink]="['/country', country]">{{ country }}</a></p>
         </div>
-        Countries here + router link
     </div>
 
 </div>
-
-<app-weather-detail></app-weather-detail>

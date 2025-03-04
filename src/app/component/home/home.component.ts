@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -23,7 +23,7 @@ export class HomeComponent {
   createForm(): FormGroup {
 
     return this.fb.group({
-      city: this.fb.control<string>("")
+      city: this.fb.control<string>("", [ Validators.required ])
     })
 
   }
@@ -38,6 +38,20 @@ export class HomeComponent {
       this.countries.push(values.city)
 
     }
+
+  }
+
+  isCtrlValid(ctrl: string): boolean {
+
+    const control = this.form.get(ctrl)
+    return !!control && control.valid && (control.dirty || control.touched)
+
+  }
+
+  isCtrlInvalid(ctrl: string): boolean { 
+
+    const control = this.form.get(ctrl)
+    return !!control && control.invalid && (control.dirty || control.touched)
 
   }
 
