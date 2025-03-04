@@ -1,6 +1,7 @@
 <div class="container">
 
     <div class="card">
+
         <div class="row mb-3">
             <h1 class="col-sm-9">{{ cityName }}</h1>
             <div class="col-sm-3 text-end">
@@ -10,6 +11,21 @@
                 </button>
             </div>
         </div>
+
+        <div class="row mb-3" *ngIf="fromApi">
+            <p>Temp: {{ fromApi.main.temp }}ºC</p>
+            <p>Feels Like: {{ fromApi.main.feels_like }}</p>
+            <p>Weather:</p>
+            <div *ngFor="let item of fromApi.weather">
+                <strong>{{ item.main }}, {{ item.description }}</strong>
+                <img [src]="'https://openweathermap.org/img/wn/' + item.icon + '@2x.png'">
+            </div>
+        </div>
+
+        <div class="row mb-3" *ngIf="errorMessage">
+            <p><strong>Error: </strong> {{ errorMessage }}</p>
+        </div>
+
     </div>
 
 </div>

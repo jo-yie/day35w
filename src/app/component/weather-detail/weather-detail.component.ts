@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { WeatherApiService } from '../../service/weather-api.service';
 
 @Component({
   selector: 'app-weather-detail',
@@ -10,15 +11,48 @@ import { switchMap } from 'rxjs/operators';
 })
 export class WeatherDetailComponent {
 
-  constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, 
+    private router: Router,
+    private weatherApiService: WeatherApiService) {}
+
   cityName: any
+  fromApi: any
+  errorMessage: any
 
   ngOnInit(): void { 
 
-    const id = this.route.snapshot.paramMap.get('id')
-    console.log(">>>>ID: ", id)
+    this.route.paramMap.subscribe(params => {
+      this.cityName = params.get('id')
+      this.fetchWeather(this.cityName)
+    })
 
-    this.cityName = this.route.snapshot.paramMap.get('id')
+    // const id = this.route.snapshot.paramMap.get('id')
+    // console.log(">>>>ID: ", id)
+
+    // this.cityName = this.route.snapshot.paramMap.get('id')?.toString()
+
+    // this.weatherApiService.getWeatherFromApi(this.cityName).subscribe({
+    //   next: (data) => {
+    //     this.fromApi = data
+    //   },
+    //   error: (err) => {
+    //     console.error(">>>Error: ", err)
+    //   }
+    // })
+
+  }
+
+  private fetchWeather(city: string): void { 
+
+    this.weatherApiService.getWeatherFromApi(city).subscribe({
+      next: (data) => {
+        this.fromApi = data
+      }, 
+      error: (err) => {
+        console.error(">>>Error: ", err)
+        this.errorMessage = err.message
+      }
+    })
 
   }
 
