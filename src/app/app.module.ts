@@ -7,6 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
 import { WeatherDetailComponent } from './component/weather-detail/weather-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './module/material/material.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule, 
     ReactiveFormsModule, 
-    HttpClientModule
+    HttpClientModule, 
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

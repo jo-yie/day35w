@@ -1,4 +1,54 @@
-<div class="container">
+<div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; height: 100vh;">
+
+    <mat-card style="flex: 1; min-width: 250px;">
+        <mat-card-header>
+            <mat-card-title>What About the Weather?</mat-card-title>
+            <mat-card-subtitle>Powered by Open Weather API</mat-card-subtitle>
+        </mat-card-header>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <mat-card-content>
+            <form [formGroup]="form" (submit)="processForm()">
+                <mat-form-field style="width: 100%">
+                    <mat-label>City</mat-label>
+                    <input type="text" matInput formControlName="city">
+                    @if (isCtrlInvalid('city')) {
+                        <mat-error>City is required</mat-error>
+                    }
+                </mat-form-field>
+                <br /><br />
+                <button mat-raised-button type="submit" [disabled]="form.invalid">
+                    Add
+                </button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+
+    <mat-card style="flex: 1; min-width: 250px;">
+        <mat-card-header>
+            <mat-card-title>City List</mat-card-title>
+            <mat-card-subtitle>Click to View the Weather</mat-card-subtitle>
+        </mat-card-header>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <mat-card-content>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button mat-raised-button *ngFor="let country of countries"
+                    [routerLink]="['/country', country]">
+                    {{ country }}
+                </button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+</div>
+
+
+
+<!-- <div class="container">
 
     <div class="card">
         <h1>What About the Weather?</h1>
@@ -38,4 +88,4 @@
         </div>
     </div>
 
-</div>
+</div> -->
